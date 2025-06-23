@@ -1,0 +1,139 @@
+.post-container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--border);
+  width: 100%;
+  padding: 20px 20px 0 20px;
+  border-radius: 28px;
+  box-shadow: 0 0 20px var(--shadow);
+}
+.post-header-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.post-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.post-header div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.post-header h3 {
+  font-size: 1.1rem;
+}
+.post-header p {
+  font-size: 0.9rem;
+  color: var(--secondary-fontcolor);
+}
+.post-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 16px;
+}
+.post-content img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: 13px;
+}
+.post-content p {
+  font-size: 1.4rem;
+}
+.post-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 16px;
+  border-top: 2px solid var(--border);
+  padding: 16px 0px;
+}
+.post-bottom button {
+  background-color: transparent;
+  border: none;
+  color: var(--fontcolor);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.5s ease;
+  padding: 16px;
+  border-radius: 16px;
+  outline: 2px solid transparent;
+}
+.post-bottom button span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cmnt-gf {
+  transition: all 0.5s ease;
+}
+.cmnt-rf {
+  transition: all 0.5s ease;
+}
+.post-bottom button:hover .cmnt-gf {
+  color: #2ecc41;
+  transform: translateY(-4px);
+}
+.post-bottom button:hover .cmnt-rf {
+  color: #cc2e2e;
+  transform: translateY(-4px);
+}
+.post-btm-counter {
+  color: var(--secondary-fontcolor);
+}
+.cmnt {
+  transition: all 0.5s ease;
+}
+.post-bottom button:hover .cmnt {
+  transform: translateY(-4px);
+  color: #2e8fcc;
+  background-color: none;
+}
+.post-bottom .gf-btn:hover {
+  box-shadow: inset 0 0 10px var(--green-btn), 0 0 20px var(--green-btn),
+    0 0 50px var(--green-btn);
+  outline: 2px solid var(--green-brdr-btn);
+}
+.post-bottom .rf-btn:hover {
+  box-shadow: inset 0 0 10px var(--red-btn), 0 0 20px var(--red-btn),
+    0 0 50px var(--red-btn);
+  outline: 2px solid var(--red-brdr-btn);
+}
+.post-bottom .rf-btn:hover {
+  background-color: white;
+  color: black;
+}
+.post-bottom .gf-btn:hover {
+  background-color: white;
+  color: black;
+}
+.post-bottom .gf-btn:hover .post-btm-counter {
+  color: black;
+}
+.post-bottom .rf-btn:hover .post-btm-counter {
+  color: black;
+}
+@media (max-width: 768px) {
+  .text-hide {
+    width: 0;
+    font-size: 0;
+  }
+  .post-bottom button:hover .cmnt-gf {
+    transform: translateY(0px);
+  }
+  .post-bottom button:hover .cmnt-rf {
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,28 @@
+.dark-mode {
+  --bodycolor: #121212;
+  --fontcolor: #ffffff;
+  --border: #333333;
+  --shadow: transparent;
+  --secondary-fontcolor: #aaaaaa;
+  --btn-bg: rgba(255, 255, 255, 0.05);
+  --nav-bg: #2c2c2c52;
+  --scnd-border: #333333;
+  --red-btn: #cc2e2e;
+  --green-btn: #2ecc41;
+  --green-brdr-btn: #2ecc4000;
+  --green-brdr-btn: #cc2e2e00;
+}
+.light-mode {
+  --bodycolor: #ffffff;
+  --fontcolor: #000000;
+  --border: #cccccc00;
+  --shadow: rgba(0, 0, 0, 0.145);
+  --secondary-fontcolor: #555555;
+  --btn-bg: #ffffff4a;
+  --nav-bg: #ffffff3e;
+  --scnd-border: #cccccc94;
+  --red-btn: #cc2e2e00;
+  --green-btn: #2ecc4000;
+  --green-brdr-btn: #2ecc41;
+  --red-brdr-btn: #cc2e2e;
+}
