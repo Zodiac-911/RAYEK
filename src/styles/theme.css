@@ -11,6 +11,9 @@
   --green-btn: #2ecc41;
   --green-brdr-btn: #2ecc4000;
   --green-brdr-btn: #cc2e2e00;
+  --message-sent-color: black;
+  --message-recieve-color: white;
+  --message-recieve-bg-color: rgb(43, 43, 43);
 }
 .light-mode {
   --bodycolor: #ffffff;
@@ -25,4 +28,7 @@
   --green-btn: #2ecc4000;
   --green-brdr-btn: #2ecc41;
   --red-brdr-btn: #cc2e2e;
+  --message-sent-color: white;
+  --message-recieve-color: black;
+  --message-recieve-bg-color: rgb(227, 227, 227);
 }

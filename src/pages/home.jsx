@@ -7,7 +7,7 @@ import NewPostInput from "../components/new-post-input.jsx";
 function Home() {
   return (
     <>
-      <div className="feed-container">
+      <div className="content-container home-container">
         <NewPostInput />
         <PostCard
           userIMG={userIMG1}
