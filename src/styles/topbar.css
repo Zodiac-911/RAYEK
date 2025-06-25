@@ -163,6 +163,7 @@
   .topbar {
     top: unset;
     bottom: 0;
+    height: 80px;
   }
   .topbar.scrolled {
     height: 80px;
