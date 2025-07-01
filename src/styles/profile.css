@@ -1,0 +1,95 @@
+.profile-image-holder {
+  display: flex;
+  align-items: center;
+}
+.profile-content-container {
+  justify-content: center;
+  margin-top: 180px;
+}
+.profile-img {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+}
+.profile-details-counter {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.profile-details-counter h3 {
+  font-size: 1.4rem;
+}
+.profile-details-counter p {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 1.1rem;
+}
+.profile-details-counter p span {
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-style: italic;
+}
+.profile-rf-gf-holder {
+  display: flex;
+  max-width: 600px;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 140px;
+}
+.profile-gf-rf-btn {
+  display: flex;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  padding: 20px;
+  font-size: 1.2rem;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid transparent;
+  transition: all 0.5s ease;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: -20px;
+  background-position-y: 200px;
+}
+.profile-gf {
+  background-image: url(../assets/greenflag-bg-1.png);
+}
+.profile-rf {
+  background-image: url(../assets/redflag-bg-1.png);
+}
+.profile-gf:hover {
+  border: 4px solid #2ecc41;
+  color: transparent;
+  background-position-y: 0;
+}
+
+.profile-rf:hover {
+  border: 4px solid #cc2e2e;
+  color: transparent;
+  background-position-y: 0;
+}
+@media (max-width: 500px) {
+  .profile-content-container {
+    flex-direction: column;
+    margin-top: 0;
+  }
+  .profile-image-holder {
+    width: 100%;
+    justify-content: center;
+    margin: 40px 0;
+  }
+  .profile-details-counter {
+    margin-left: 0;
+  }
+  .profile-rf-gf-holder {
+    padding-bottom: 200px;
+  }
+}
