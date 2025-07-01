@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import "../styles/chat.css";
 import "../styles/home.css";
 import MessagesUserCard from "../components/messages-user-card.jsx";
@@ -7,6 +8,21 @@ import MessageRecieve from "../components/message-recieve.jsx";
 import MessageInput from "../components/message-type-input.jsx";
 
 function Chat() {
+  const chatAreaRef = useRef(null);
+
+  useEffect(() => {
+    if (chatAreaRef.current) {
+      chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+    }
+  }, []); // This runs once after initial render
+
+  // You may want to scroll on every render/update as well (if new messages are dynamic)
+  useEffect(() => {
+    if (chatAreaRef.current) {
+      chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+    }
+  });
+
   return (
     <>
       <div className="content-container chat-content-container">
@@ -22,7 +38,8 @@ function Chat() {
           <MessagesUserCard userIMG={userIMG1} username={"teebag"} />
           <MessagesUserCard userIMG={userIMG1} username={"heisenburg"} />
           <MessagesUserCard userIMG={userIMG1} username={"pinkman"} />
-          <MessagesUserCard userIMG={userIMG1} username={"chemso"} />{" "}
+          <MessagesUserCard userIMG={userIMG1} username={"chemso"} />
+          {/* Repeated users */}
           <MessagesUserCard userIMG={userIMG1} username={"zodiac911"} />
           <MessagesUserCard userIMG={userIMG1} username={"jhon_pork"} />
           <MessagesUserCard userIMG={userIMG1} username={"db_cooper"} />
@@ -32,7 +49,7 @@ function Chat() {
           <MessagesUserCard userIMG={userIMG1} username={"chemso"} />
         </div>
         <div className="chat-container">
-          <div className="chat-area">
+          <div className="chat-area" ref={chatAreaRef}>
             <MessageSent message={"Hello"} />
             <MessageRecieve message={"Hi how r u?"} />
             <MessageSent message={"Fine"} />
@@ -50,7 +67,7 @@ function Chat() {
               message={
                 "Every time you queue up, I swear the other team starts celebrating early 🎉😂 Like “oh look, it’s zodiac, free win incoming!” 📦💨"
               }
-            />{" "}
+            />
             <MessageRecieve
               message={
                 "Honestly, at this point I think your controller’s playing you 💀🕹️ But hey, at least you’re consistent — consistently carried 😌"
@@ -73,4 +90,5 @@ function Chat() {
     </>
   );
 }
+
 export default Chat;
