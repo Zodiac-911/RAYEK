@@ -1,9 +1,18 @@
 import { useEffect } from "react";
 import "../styles/light-dark-button.css";
+import { useState } from "react";
 
 function LdBtn() {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (localStorage.getItem("dark-mode") === "true") {
+      return true;
+    } else if (localStorage.getItem("dark-mode") === "false") {
+      return false;
+    } else {
+      return true; // Default to dark mode
+    }
+  });
   useEffect(() => {
-    const isDarkMode = localStorage.getItem("dark-mode") === "true";
     if (isDarkMode) {
       document.body.classList.add("dark-mode");
       document.body.classList.remove("light-mode");
@@ -11,10 +20,11 @@ function LdBtn() {
       document.body.classList.remove("dark-mode");
       document.body.classList.add("light-mode");
     }
-  }, []);
+  }, [isDarkMode]);
   function onclick(e) {
-    const isChecked = e.target.checked;
-    if (isChecked) {
+    setIsDarkMode(e.target.checked);
+
+    if (e.target.checked) {
       document.body.classList.add("dark-mode");
       document.body.classList.remove("light-mode");
       localStorage.setItem("dark-mode", "true");
@@ -23,7 +33,6 @@ function LdBtn() {
       document.body.classList.add("light-mode");
       localStorage.setItem("dark-mode", "false");
     }
-    console.log(e.target.checked);
   }
   return (
     <>
@@ -41,7 +50,12 @@ function LdBtn() {
             <path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path>
           </svg>
         </span>
-        <input type="checkbox" className="input" onClick={(e) => onclick(e)} />
+        <input
+          type="checkbox"
+          checked={isDarkMode}
+          className="input"
+          onChange={(e) => onclick(e)}
+        />
         <span className="slider"></span>
       </label>
     </>

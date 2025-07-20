@@ -7,6 +7,9 @@ import Chat from "./pages/chat.jsx";
 import Profile from "./pages/profile.jsx";
 import Notifications from "./pages/notifications.jsx";
 import EditProfile from "./pages/edit-profile.jsx";
+import Login from "./pages/login.jsx";
+import SignUp from "./pages/signup.jsx";
+
 function App() {
   return (
     <>
@@ -17,6 +20,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </>
   );

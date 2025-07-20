@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "../styles/topbar.css";
 import logo from "../assets/rayek-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BsPersonFill } from "react-icons/bs";
 import { BiSolidChat } from "react-icons/bi";
 import { RiHome6Fill } from "react-icons/ri";
@@ -11,8 +11,18 @@ import LdBtn from "./light-dark-button.jsx";
 function Topbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("");
-
+  const [show, setShow] = useState(false);
+  let location = useLocation();
   useEffect(() => {
+    if (location.pathname === "/login" || location.pathname === "/signup") {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+  }, [location.pathname]);
+  useEffect(() => {
+    console.log(location.pathname);
+
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
       if (isScrolled !== scrolled) {
@@ -35,7 +45,9 @@ function Topbar() {
   }, [scrolled]);
 
   return (
-    <div className={`topbar ${scrolled ? "scrolled" : ""}`}>
+    <div
+      className={`topbar ${scrolled ? "scrolled" : ""} ${show ? "" : "hidden"}`}
+    >
       <Link
         onClick={() => setActiveLink("/")}
         to="/"
