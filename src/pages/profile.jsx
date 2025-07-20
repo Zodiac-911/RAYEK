@@ -4,12 +4,15 @@ import userIMG from "../assets/user-img1.png";
 import ProfileDetailsCounter from "../components/profile-details-counter.jsx";
 import { Link } from "react-router-dom";
 import EditProfileBtn from "../components/edit-profile-btn.jsx";
-
+import FollowButton from "../components/follow-btn.jsx";
 function Profile() {
   return (
     <>
       <div className="content-container profile-content-container">
-        <ProfileImage profileIMG={userIMG} />
+        <div className="avatar-follow">
+          <ProfileImage profileIMG={userIMG} />
+          <FollowButton />
+        </div>
         <ProfileDetailsCounter username={"zodiac911"} followers={"99k"} />
         <Link to="/edit-profile">
           <EditProfileBtn />

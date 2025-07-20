@@ -1,6 +1,7 @@
 .notification-container {
   flex-direction: column;
   gap: 8px;
+  padding: 20px;
 }
 .notification-card {
   display: flex;

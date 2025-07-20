@@ -40,6 +40,7 @@ function NewPostInput() {
           placeholder="Add Rayek!"
           className="auto-expand-textarea"
           rows={1}
+          value={postText}
           onInput={adjustTextareaHeight}
           onChange={(e) => {
             if (e.target.value.length <= 400) {

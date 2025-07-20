@@ -117,3 +117,245 @@
     margin-top: 12px;
   }
 }
+/* follow botton */
+.follow-btn {
+  display: flex;
+  position: absolute;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: transparent;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 160px;
+}
+.avatar-follow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2ecc41;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.follow-btn .icon {
+  transition: all 0.3s ease;
+}
+
+/* Follow state */
+.follow-btn:not(.following) .btn-background {
+  background-color: #2ecc41;
+}
+
+/* Following state */
+.follow-btn.following .btn-background {
+  background-color: #f1f1f1;
+}
+
+.follow-btn.following {
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+/* Hover effects */
+.follow-btn:not(.following):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(46, 204, 65, 0.3);
+}
+
+.follow-btn.following:hover {
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.follow-btn.following:hover .btn-background {
+  background-color: #ffecec;
+}
+
+.follow-btn.following:hover .btn-content span {
+  display: none;
+}
+
+.follow-btn.following:hover .btn-content::after {
+  content: "Unfollow";
+}
+
+/* Animation */
+.follow-btn.animating .btn-content {
+  transform: scale(0.9);
+  opacity: 0.7;
+}
+
+.follow-btn.animating .btn-background {
+  transform: scaleX(1.1);
+}
+/* Close Button Styles */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #777;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background-color: #f5f5f5;
+  color: #333;
+  transform: rotate(90deg);
+}
+
+.edit-profile-container {
+  position: relative; /* Needed for absolute positioning of close button */
+  padding-top: 50px; /* Make space for close button */
+}
+
+/* Rest of your existing styles remain the same */
+.edit-profile-btn {
+  height: 40px;
+  padding: 8px 16px;
+  color: var(--fontcolor);
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  position: absolute;
+  gap: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.edit-profile-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(46, 204, 65, 0.2),
+    rgba(46, 204, 65, 0.1),
+    transparent
+  );
+  z-index: -1;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.edit-profile-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 204, 65, 0.2);
+  color: #2ecc41;
+  border-color: rgba(46, 204, 65, 0.3);
+}
+
+.edit-profile-btn:hover::before {
+  opacity: 1;
+}
+
+.icon {
+  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.icon.spin {
+  transform: rotate(180deg);
+}
+
+.btn-text {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.hover-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(46, 204, 65, 0.4) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.edit-profile-btn:hover .hover-effect {
+  opacity: 1;
+}
+
+@media (max-width: 500px) {
+  .edit-profile-btn {
+    margin: 0 auto;
+    margin-top: 40px;
+    position: static;
+  }
+}
+
+/* Glow animation for premium feel */
+@keyframes subtleGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(46, 204, 65, 0);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(46, 204, 65, 0.3);
+  }
+}
+
+.edit-profile-btn:hover {
+  animation: subtleGlow 2s infinite;
+}

@@ -3,12 +3,14 @@ import "../styles/edit-profile.css";
 import "../styles/home.css";
 import AvataUploadBTN from "../components/avatar-upload-btn.jsx";
 import ChangeUsernameInput from "../components/change-username-input.jsx";
-import { FaSave } from "react-icons/fa";
+import { FaSave, FaTimes } from "react-icons/fa";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function EditProfile() {
   const [isSaving, setIsSaving] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const navigate = useNavigate();
 
   const handleSave = () => {
     setIsSaving(true);
@@ -20,8 +22,16 @@ function EditProfile() {
     }, 1500);
   };
 
+  const handleClose = () => {
+    navigate("/profile");
+  };
+
   return (
     <div className="content-container edit-profile-container">
+      <button className="close-btn" onClick={handleClose}>
+        <FaTimes />
+      </button>
+
       <AvataUploadBTN userIMG={userIMG1} />
       <ChangeUsernameInput />
 
