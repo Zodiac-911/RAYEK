@@ -76,6 +76,21 @@
   color: transparent;
   background-position-y: 0;
 }
+.edit-profile-btn {
+  height: 40px;
+  padding: 8px 16px;
+  color: var(--fontcolor);
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(113, 113, 113, 0.121);
+  position: absolute;
+}
+.edit-profile-btn:hover {
+  cursor: pointer;
+}
 @media (max-width: 500px) {
   .profile-content-container {
     flex-direction: column;
@@ -91,5 +106,10 @@
   }
   .profile-rf-gf-holder {
     padding-bottom: 200px;
+  }
+  .edit-profile-btn {
+    margin: 0 auto;
+    margin-top: 40px;
+    position: static;
   }
 }

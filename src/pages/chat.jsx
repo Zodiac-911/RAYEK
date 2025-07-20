@@ -6,9 +6,30 @@ import userIMG1 from "../assets/user-img1.png";
 import MessageSent from "../components/message-sent.jsx";
 import MessageRecieve from "../components/message-recieve.jsx";
 import MessageInput from "../components/message-type-input.jsx";
+import { useState } from "react";
 
 function Chat() {
   const chatAreaRef = useRef(null);
+  const [freinds, setFreinds] = useState([
+    { username: "zodiac911", userIMG: userIMG1, active: true },
+    { username: "jhon_pork", userIMG: userIMG1, active: false },
+    { username: "db_cooper", userIMG: userIMG1, active: false },
+    { username: "teebag", userIMG: userIMG1, active: false },
+    { username: "heisenburg", userIMG: userIMG1, active: false },
+    { username: "pinkman", userIMG: userIMG1, active: false },
+    { username: "chemso", userIMG: userIMG1, active: false },
+  ]);
+  function onActive(i) {
+    const tmp = [...freinds];
+    tmp.forEach((friend, index) => {
+      if (index === i) {
+        friend.active = true;
+      } else {
+        friend.active = false;
+      }
+    });
+    setFreinds(tmp);
+  }
 
   useEffect(() => {
     if (chatAreaRef.current) {
@@ -27,26 +48,16 @@ function Chat() {
     <>
       <div className="content-container chat-content-container">
         <div className="chat-users-container">
-          <MessagesUserCard
-            userIMG={userIMG1}
-            username={"zodiac911"}
-            active={true}
-            hasNewMessages={true}
-          />
-          <MessagesUserCard userIMG={userIMG1} username={"jhon_pork"} />
-          <MessagesUserCard userIMG={userIMG1} username={"db_cooper"} />
-          <MessagesUserCard userIMG={userIMG1} username={"teebag"} />
-          <MessagesUserCard userIMG={userIMG1} username={"heisenburg"} />
-          <MessagesUserCard userIMG={userIMG1} username={"pinkman"} />
-          <MessagesUserCard userIMG={userIMG1} username={"chemso"} />
-          {/* Repeated users */}
-          <MessagesUserCard userIMG={userIMG1} username={"zodiac911"} />
-          <MessagesUserCard userIMG={userIMG1} username={"jhon_pork"} />
-          <MessagesUserCard userIMG={userIMG1} username={"db_cooper"} />
-          <MessagesUserCard userIMG={userIMG1} username={"teebag"} />
-          <MessagesUserCard userIMG={userIMG1} username={"heisenburg"} />
-          <MessagesUserCard userIMG={userIMG1} username={"pinkman"} />
-          <MessagesUserCard userIMG={userIMG1} username={"chemso"} />
+          {freinds.map((friend, index) => (
+            <MessagesUserCard
+              key={index}
+              username={friend.username}
+              userIMG={friend.userIMG}
+              active={friend.active}
+              onActive={onActive}
+              index={index}
+            />
+          ))}
         </div>
         <div className="chat-container">
           <div className="chat-area" ref={chatAreaRef}>

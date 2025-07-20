@@ -1,8 +1,11 @@
 import "../styles/chat.css";
 
-function MessagesUserCard({ username, userIMG, active }) {
+function MessagesUserCard({ username, userIMG, active, onActive, index }) {
   return (
-    <div className={`messages-user-card ${active ? "active" : ""}`}>
+    <div
+      onClick={() => onActive(index)}
+      className={`messages-user-card ${active ? "active" : ""}`}
+    >
       <img src={userIMG} alt="" />
       <span>{username}</span>
     </div>
