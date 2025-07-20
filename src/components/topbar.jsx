@@ -36,7 +36,11 @@ function Topbar() {
 
   return (
     <div className={`topbar ${scrolled ? "scrolled" : ""}`}>
-      <Link to="/" className="logo-container">
+      <Link
+        onClick={() => setActiveLink("/")}
+        to="/"
+        className="logo-container"
+      >
         <img src={logo} alt="RAYEK" className="logo" />
         <span className="logo-glow"></span>
       </Link>

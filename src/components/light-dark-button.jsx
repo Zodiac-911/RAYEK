@@ -1,14 +1,27 @@
+import { useEffect } from "react";
 import "../styles/light-dark-button.css";
 
 function LdBtn() {
-  function onclick(e) {
-    const isChecked = e.target.checked;
-    if (isChecked) {
+  useEffect(() => {
+    const isDarkMode = localStorage.getItem("dark-mode") === "true";
+    if (isDarkMode) {
       document.body.classList.add("dark-mode");
       document.body.classList.remove("light-mode");
     } else {
       document.body.classList.remove("dark-mode");
       document.body.classList.add("light-mode");
+    }
+  }, []);
+  function onclick(e) {
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      document.body.classList.add("dark-mode");
+      document.body.classList.remove("light-mode");
+      localStorage.setItem("dark-mode", "true");
+    } else {
+      document.body.classList.remove("dark-mode");
+      document.body.classList.add("light-mode");
+      localStorage.setItem("dark-mode", "false");
     }
     console.log(e.target.checked);
   }

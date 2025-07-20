@@ -112,4 +112,8 @@
     margin-top: 40px;
     position: static;
   }
+  .profile-rf-gf-holder {
+    flex-direction: column;
+    margin-top: 12px;
+  }
 }
