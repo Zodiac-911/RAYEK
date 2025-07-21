@@ -6,6 +6,7 @@
   flex-direction: column;
 }
 .login-card {
+  position: relative; /* Needed for absolute positioning of pseudo-elements */
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -15,6 +16,65 @@
   animation: fadeInUp 0.6s ease-out;
   margin-top: 100px;
   border: 2px solid var(--border);
+  backdrop-filter: blur(40px);
+  overflow: hidden; /* Keeps the gradient circles contained */
+}
+
+/* Gradient circle background elements */
+.login-card::before,
+.login-card::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Red circle */
+.login-card::before {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--card-bg-green), transparent 70%);
+  top: -50px;
+  left: -50px;
+  animation: moveGradient1 8s ease infinite alternate;
+}
+
+/* Green circle */
+.login-card::after {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, var(--card-bg-red), transparent 70%);
+  bottom: -80px;
+  right: -50px;
+  animation: moveGradient2 12s ease infinite alternate-reverse;
+}
+
+/* Animation for the red circle */
+@keyframes moveGradient1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(40px, 40px);
+  }
+  100% {
+    transform: translate(-30px, -30px);
+  }
+}
+
+/* Animation for the green circle */
+@keyframes moveGradient2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-60px, -30px);
+  }
+  100% {
+    transform: translate(30px, 60px);
+  }
 }
 
 .login-title {
@@ -153,5 +213,37 @@
   }
   .login-footer {
     display: block;
+  }
+}
+.flags-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.flags-bg {
+  width: 100%;
+  height: auto;
+  animation: scrollBackground 60s linear infinite;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+@keyframes scrollBackground {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@media (max-width: 500px) {
+  .flags-bg {
+    height: 120px; /* Increase from original height */
+    min-height: 120px; /* Ensures minimum height */
+    width: auto; /* Maintain aspect ratio */
   }
 }

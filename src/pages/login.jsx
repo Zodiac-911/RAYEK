@@ -4,6 +4,7 @@ import "../styles/login.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/rayek-logo.png";
 import LdBtn from "../components/light-dark-button.jsx";
+import FlagsBgScroll from "../components/flags-bg-scroll.jsx";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -21,6 +22,7 @@ function Login() {
 
   return (
     <>
+      <FlagsBgScroll />
       <div className="login-container ">
         <LdBtn />
         <div className="login-card">

@@ -14,6 +14,8 @@
   --message-sent-color: black;
   --message-recieve-color: white;
   --message-recieve-bg-color: rgb(43, 43, 43);
+  --card-bg-red: #cc2e2e;
+  --card-bg-green: #2ecc41;
 }
 .light-mode {
   --bodycolor: #ffffff;
@@ -31,4 +33,6 @@
   --message-sent-color: white;
   --message-recieve-color: black;
   --message-recieve-bg-color: rgb(227, 227, 227);
+  --card-bg-red: #cc2e2e00;
+  --card-bg-green: #2ecc4000;
 }
