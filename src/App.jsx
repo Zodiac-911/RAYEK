@@ -10,25 +10,44 @@ import EditProfile from "./pages/edit-profile.jsx";
 import Login from "./pages/login.jsx";
 import SignUp from "./pages/signup.jsx";
 import ProfileGreenFlags from "./pages/profile-green-flags.jsx";
-import ProfileRedFlags from "./pages/profile-red-flags.jsx";
+import ProfileRedFlagssssasjdkhakjs from "./pages/profile-red-flags.jsx";
+import { PocketBaseProvider } from "./context/PocketBaseProviders.jsx";
+import { GuestGuard } from "./components/guards/GuestGuard.jsx";
+import { AuthGuard } from "./components/guards/AuthGuard.jsx";
+import { ToastContainer } from "react-toastify";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
-  return (
-    <>
-      <Topbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/notifications" element={<Notifications />} />
-        <Route path="/edit-profile" element={<EditProfile />} />
-        <Route path="/greenflags" element={<ProfileGreenFlags />} />
-        <Route path="/redflags" element={<ProfileRedFlags />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
-    </>
-  );
+	const queryClient = new QueryClient();
+	return (
+		<>
+			<QueryClientProvider client={queryClient}>
+				<ToastContainer />
+				<Topbar />
+				<PocketBaseProvider>
+					<Routes>
+						<Route element={<AuthGuard />}>
+							<Route path="/" element={<Home />} />
+							<Route path="/chat" element={<Chat />} />
+							<Route path="/profile" element={<Profile />} />
+							<Route path="/notifications" element={<Notifications />} />
+							<Route path="/edit-profile" element={<EditProfile />} />
+							<Route path="/greenflags" element={<ProfileGreenFlags />} />
+							<Route
+								path="/redflags"
+								element={<ProfileRedFlagssssasjdkhakjs />}
+							/>
+						</Route>
+
+						<Route element={<GuestGuard />}>
+							<Route path="/login" element={<Login />} />
+							<Route path="/signup" element={<SignUp />} />
+						</Route>
+					</Routes>
+				</PocketBaseProvider>
+			</QueryClientProvider>
+		</>
+	);
 }
 
 export default App;
