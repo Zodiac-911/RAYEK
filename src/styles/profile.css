@@ -52,7 +52,7 @@
   background-color: transparent;
   justify-content: center;
   align-items: center;
-  border: 4px solid transparent;
+
   transition: all 0.5s ease;
   background-size: cover;
   background-repeat: no-repeat;
@@ -61,20 +61,28 @@
 }
 .profile-gf {
   background-image: url(../assets/greenflag-bg-1.png);
+  border: 4px solid #2ecc4053;
+  outline: 4px dotted #cc2e2e00;
+  outline-offset: 8px;
 }
 .profile-rf {
   background-image: url(../assets/redflag-bg-1.png);
+  border: 4px solid #cc2e2e5f;
+  outline: 4px dotted #cc2e2e00;
+  outline-offset: 8px;
 }
 .profile-gf:hover {
   border: 4px solid #2ecc41;
   color: transparent;
   background-position-y: 0;
+  outline: 4px dotted #2ecc4053;
 }
 
 .profile-rf:hover {
   border: 4px solid #cc2e2e;
   color: transparent;
   background-position-y: 0;
+  outline: 4px dotted #cc2e2e5f;
 }
 .edit-profile-btn {
   height: 40px;
@@ -342,6 +350,10 @@
     margin: 0 auto;
     margin-top: 40px;
     position: static;
+  }
+  .profile-rf-gf-holder {
+    gap: 20px;
+    margin-top: 40px;
   }
 }
 
