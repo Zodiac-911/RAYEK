@@ -66,7 +66,7 @@ function NewPostInput() {
             className="image-upload-btn"
             onClick={() => fileInputRef.current.click()}
           >
-            <FaImage size={40} />
+            <FaImage size={30} />
             <input
               type="file"
               ref={fileInputRef}
