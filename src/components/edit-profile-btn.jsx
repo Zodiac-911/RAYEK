@@ -6,6 +6,7 @@ function EditProfileBtn() {
     <>
       <button className="edit-profile-btn">
         <FaPen size={16} />
+        <span>Edit Profile</span>
       </button>
     </>
   );

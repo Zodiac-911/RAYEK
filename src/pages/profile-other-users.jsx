@@ -3,27 +3,25 @@ import ProfileImage from "../components/profile-image.jsx";
 import userIMG from "../assets/user-img1.png";
 import ProfileDetailsCounter from "../components/profile-details-counter.jsx";
 import { Link } from "react-router-dom";
-import EditProfileBtn from "../components/edit-profile-btn.jsx";
 import FollowButton from "../components/follow-btn.jsx";
-import { FiLogOut } from "react-icons/fi";
+import { FiMessageSquare } from "react-icons/fi";
 
-function Profile() {
+function ProfileOtherUsers() {
   return (
     <>
       <div className="content-container profile-content-container">
         <div className="avatar-follow">
           <ProfileImage profileIMG={userIMG} />
-        </div>
+
+          <FollowButton />
+        </div>{" "}
+        <Link to="/chat" className="message-btn">
+          <FiMessageSquare className="message-icon" />
+          <span>Send Message</span>
+        </Link>
         <ProfileDetailsCounter username={"zodiac911"} followers={"99k"} />
       </div>
-      <div className="profile-user-actions">
-        <Link to="/edit-profile">
-          <EditProfileBtn />
-        </Link>
-        <Link className="logout-btn">
-          <FiLogOut className="logout-icon" />
-        </Link>
-      </div>
+
       <div className="profile-rf-gf-holder">
         <Link className="profile-gf-rf-btn profile-gf" to="/greenflags">
           GreenFlags
@@ -35,4 +33,4 @@ function Profile() {
     </>
   );
 }
-export default Profile;
+export default ProfileOtherUsers;
