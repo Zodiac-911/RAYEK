@@ -203,11 +203,13 @@ function PostCard({
             </span>
           </button>
           <button className="cmnt-btn">
-            <RiMessageFill className="cmnt" />
-            <span>
-              <span className="text-hide">Comments | </span>
-              <span className="post-btm-counter">{postComments}</span>
-            </span>
+            <Link className="cmnt-link" to="/post">
+              <RiMessageFill className="cmnt" />
+              <span>
+                <span className="text-hide">Comments | </span>
+                <span className="post-btm-counter">{postComments}</span>
+              </span>
+            </Link>
           </button>
         </div>
       </div>

@@ -476,6 +476,7 @@
     margin-top: -212px;
     right: 70px;
     border: none;
+    color: white;
     background: linear-gradient(145deg, #4361ee, #3a0ca3);
   }
   .message-btn:hover {

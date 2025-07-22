@@ -17,6 +17,7 @@ import { AuthGuard } from "./components/guards/AuthGuard.jsx";
 import { ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ProfileOtherUsers from "./pages/profile-other-users.jsx";
+import PostComments from "./pages/post-comments.jsx";
 
 function App() {
   const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ function App() {
                 element={<ProfileRedFlagssssasjdkhakjs />}
               />
               <Route path="/profile/id:" element={<ProfileOtherUsers />} />
+              <Route path="/post" element={<PostComments />} />
             </Route>
 
             <Route element={<GuestGuard />}>
